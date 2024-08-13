@@ -7,4 +7,4 @@ This project provides a Dockerized API service that you can run and access using
 To pull and run the latest version of the container from Docker Hub, use the following command:
 
 ```bash
-docker run --pull always --rm -p 28080:8080 -p 28081:8081 --name curlimpersonateapi mikeon/curl-impersonate-api:latest
+docker run --pull always --rm -p 28080:8080 -p 28081:8081 --name curl-impersonate-api mikeon/curl-impersonate-api:latest
