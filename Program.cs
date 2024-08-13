@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +16,6 @@ var app = builder.Build();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.MapPost("/curl", ([FromBody] CurlRequest request) =>
 {
