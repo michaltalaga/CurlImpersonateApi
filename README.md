@@ -1,6 +1,6 @@
 # Curl Impersonate API
 
-This project provides a Dockerized API service that you can run and access using Swagger for easy interaction with the API.
+This project provides a Dockerized API service built on top of [curl-impersonate](https://github.com/lwthiker/curl-impersonate). It allows you to interact with `curl-impersonate` via a RESTful API, making it easier to leverage its capabilities programmatically. The API service is containerized for ease of deployment and access.
 
 ## How to Run the Docker Container
 
