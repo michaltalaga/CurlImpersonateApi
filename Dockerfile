@@ -34,4 +34,4 @@ RUN apt-get update && \
 RUN tar -xzvf /tmp/curl-impersonate.tar.gz -C /usr/local/bin && \
     rm /tmp/curl-impersonate.tar.gz
 USER app
-ENTRYPOINT ["dotnet", "CurlImpersonateApi.dll"]
+ENTRYPOINT ["dotnet", "CurlImpersonateApi.dll", "--server.urls", "http://*:8080"]
