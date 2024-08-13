@@ -1,0 +1,6 @@
+@CurlImpersonateApi_HostAddress = http://localhost:5270
+
+GET {{CurlImpersonateApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
