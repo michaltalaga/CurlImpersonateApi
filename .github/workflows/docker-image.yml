@@ -23,3 +23,10 @@ jobs:
 
     - name: Push the Docker image
       run: docker push mikeon/curl-impersonate-api:latest
+    
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v4
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        repository: mikeon/curl-impersonate-api
