@@ -8,3 +8,6 @@ To pull and run the latest version of the container from Docker Hub, use the fol
 
 ```bash
 docker run --pull always --rm -p 28080:8080 --name curl-impersonate-api mikeon/curl-impersonate-api:latest
+
+```bash
+docker run --pull always -d -p 28080:8080 --name curl-impersonate-api mikeon/curl-impersonate-api:latest
