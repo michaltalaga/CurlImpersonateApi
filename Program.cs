@@ -29,7 +29,7 @@ app.MapPost("/curl", ([FromBody] CurlRequest request) =>
         CreateNoWindow = true
     };
 
-    foreach (var header in request.Headers)
+    foreach (var header in request.Headers ?? new())
     {
         processInfo.Arguments += $" -H \"{header.Key}: {header.Value}\"";
     }
