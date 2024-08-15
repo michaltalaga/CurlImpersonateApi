@@ -13,3 +13,11 @@ docker run --pull always --rm -p 28080:8080 --name curl-impersonate-api mikeon/c
 ```bash
 docker run --pull always -d -p 28080:8080 --name curl-impersonate-api mikeon/curl-impersonate-api:latest
 ```
+
+## Using the API
+
+Use Swagger & OpenAPI
+
+```bash
+http://localhost:28080/swagger/index.html
+```
