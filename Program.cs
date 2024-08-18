@@ -17,8 +17,10 @@ var app = builder.Build();
     app.UseSwaggerUI();
 }
 
-app.MapPost("/curl", ([FromBody] CurlRequest request) =>
+app.MapPost("/curl", ([FromBody] CurlRequest request, ILogger<Program> logger) =>
 {
+    logger.LogInformation("Received a request: Method={Method}, Url={Url}, Headers={Headers}, Body={Body}",
+            request.Method, request.Url, string.Join("; ", request.Headers?.Select(h => $"{h.Key}: {h.Value}") ?? Array.Empty<string>()), request.Body);
     var processInfo = new ProcessStartInfo
     {
         FileName = "curl_chrome116",
