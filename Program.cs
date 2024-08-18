@@ -21,10 +21,11 @@ app.MapPost("/curl", ([FromBody] CurlRequest request, ILogger<Program> logger) =
 {
     logger.LogInformation("Received a request: Method={Method}, Url={Url}, Headers={Headers}, Body={Body}",
             request.Method, request.Url, string.Join("; ", request.Headers?.Select(h => $"{h.Key}: {h.Value}") ?? Array.Empty<string>()), request.Body);
+    var url = new Uri(request.Url).AbsoluteUri;
     var processInfo = new ProcessStartInfo
     {
         FileName = "curl_chrome116",
-        Arguments = $"-X {request.Method} \"{request.Url}\"",
+        Arguments = $"-X {request.Method} \"{url}\"",
         RedirectStandardOutput = true,
         RedirectStandardError = true,
         UseShellExecute = false,
