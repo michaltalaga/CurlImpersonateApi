@@ -24,7 +24,7 @@ app.MapPost("/curl", ([FromBody] CurlRequest request, ILogger<Program> logger) =
     var processInfo = new ProcessStartInfo
     {
         FileName = "curl_chrome116",
-        Arguments = $"-X {request.Method} {request.Url}",
+        Arguments = $"-X {request.Method} \"{request.Url}\"",
         RedirectStandardOutput = true,
         RedirectStandardError = true,
         UseShellExecute = false,
