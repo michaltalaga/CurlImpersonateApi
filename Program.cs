@@ -22,7 +22,7 @@ app.MapPost("/curl", ([FromBody] CurlRequest request) =>
     var processInfo = new ProcessStartInfo
     {
         FileName = "curl_chrome116",
-        Arguments = request.Url,
+        Arguments = $"-X {request.Method} {request.Url}",
         RedirectStandardOutput = true,
         RedirectStandardError = true,
         UseShellExecute = false,
@@ -32,6 +32,10 @@ app.MapPost("/curl", ([FromBody] CurlRequest request) =>
     foreach (var header in request.Headers ?? new())
     {
         processInfo.Arguments += $" -H \"{header.Key}: {header.Value}\"";
+    }
+    if (request.Body?.Length > 0)
+    {
+        processInfo.Arguments += $" -d \"{request.Body}\"";
     }
 
     var process = new Process { StartInfo = processInfo };
@@ -57,5 +61,7 @@ app.Run();
 public class CurlRequest
 {
     public string Url { get; set; }
-    public Dictionary<string, string> Headers { get; set; }
+    public Dictionary<string, string>? Headers { get; set; }
+    public string? Method { get; set; } = "GET";
+    public string? Body { get; set; }
 }
